@@ -3,7 +3,7 @@ RM		= rm -rf
 CC		= c++
 CFLAGS	= -Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address  
 SRCS	= megaphone.cpp
-OBJS	= $(SRCS:%.c=%.o)
+OBJS	= $(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
 
