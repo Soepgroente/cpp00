@@ -16,13 +16,13 @@ int32_t	main(int argc, char** argv)
 
 	if (argc == 1)
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
 		return (0);
 	}
 	input = argv[1];
 	for (int i = 2; argv[i] != NULL; i++)
 	{
-		input += " ";
+		input.append(" ");
 		input.append(argv[i]);
 	}
 	ShoutInput(input);
