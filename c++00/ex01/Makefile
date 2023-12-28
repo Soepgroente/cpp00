@@ -14,8 +14,8 @@ all:	$(NAME)
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
-$(OBJDIR)%.o : %.cpp
-	$(CC) -c $(CFLAGS) -o $@ $^
+$(OBJDIR)/%.o : %.cpp
+	$(CC) -c $^ $(CFLAGS) -o $@
 
 $(NAME): $(OBJDIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

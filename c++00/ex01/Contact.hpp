@@ -2,6 +2,7 @@
 # define CONTACT_HPP
 
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
@@ -10,13 +11,16 @@ class Contact
 		std::string LastName;
 		std::string NickName;
 		std::string PhoneNumber;
-		uint64_t	time_added;
-
-	private:
 		std::string DarkestSecret;
+		std::time_t	time_added;
+
+	Contact()
+	{
+		time_added = std::time(0);
+	}
 };
 
-void	add_contact();
+Contact	add_contact();
 void	search_contact();
 
 #endif

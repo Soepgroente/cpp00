@@ -8,9 +8,10 @@ using namespace std;
 
 class Phonebook
 {
-	Contact	entries[8];
-
-	void	print_phonebook();
+	public:
+		Contact	entries[8];
 };
+
+void	print_phonebook();
 
 #endif

@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-void	ShoutInput(std::string &input)
+std::string&	ShoutInput(std::string &input)
 {
 	for (int i = 0; input[i] != '\0'; i++)
 		input[i] = toupper(input[i]);
-	std::cout << input << std::endl;
+	return (input);
 }
 
 int32_t	main(int argc, char** argv)
@@ -23,5 +24,6 @@ int32_t	main(int argc, char** argv)
 		input.append(" ");
 		input.append(argv[i]);
 	}
-	ShoutInput(input);
+	std::cout << ShoutInput(input) << std::endl;
+	return (0);
 }
