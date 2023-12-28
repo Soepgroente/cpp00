@@ -1,20 +1,27 @@
-NAME	= Phonebook
-RM		= rm -rf
-CC		= c++
-CFLAGS	= -Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address  
-SRCS	= Phonebook.cpp
-OBJS	= $(SRCS:%.cpp=%.o)
+NAME	=	Phonebook
+RM		=	rm -rf
+CC		=	c++
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address  
+SRCS	=	Contact.cpp \
+			Main.cpp \
+			Phonebook.cpp \
+
+OBJS	=	$(SRCS:%.cpp=$(OBJDIR)/%.o)
+OBJDIR	=	objbook
 
 all:	$(NAME)
 
-%.o : %.cpp
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJDIR)%.o : %.cpp
 	$(CC) -c $(CFLAGS) -o $@ $^
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJDIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:	
-	$(RM) $(OBJS)
+	$(RM) $(OBJDIR)
 
 fclean: clean
 	$(RM) $(NAME)

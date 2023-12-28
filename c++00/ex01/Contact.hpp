@@ -3,18 +3,20 @@
 
 #include <iostream>
 
-using namespace std;
-
 class Contact
 {
 	public:
-		string FirstName;
-		string LastName;
-		string NickName;
-		string PhoneNumber;
+		std::string FirstName;
+		std::string LastName;
+		std::string NickName;
+		std::string PhoneNumber;
+		uint64_t	time_added;
 
 	private:
-		string DarkestSecret;
+		std::string DarkestSecret;
 };
+
+void	add_contact();
+void	search_contact();
 
 #endif

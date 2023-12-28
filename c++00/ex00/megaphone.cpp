@@ -1,22 +1,20 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-void	ShoutInput(string &input)
+void	ShoutInput(std::string &input)
 {
 	for (int i = 0; input[i] != '\0'; i++)
 		input[i] = toupper(input[i]);
-	cout << input << endl;
+	std::cout << input << std::endl;
 }
 
 int32_t	main(int argc, char** argv)
 {
-	string input;
+	std::string input;
 
 	if (argc == 1)
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
 	input = argv[1];
