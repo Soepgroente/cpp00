@@ -4,32 +4,60 @@
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 
-void	print_contact(Contact entry)
+static std::string	truncate_field(std::string input)
 {
-	std::setw(10);
-	std::cout << left << entry.FirstName << std::endl;
-	std::cout << right << entry.FirstName << std::endl;
+	size_t		max_len = 10;
+
+	if (input.length() > max_len)
+		return (input.substr(0, max_len - 1) + ".");
+	else
+		return (input);
 }
 
-Contact	add_contact()
+void Contact::show_contact()
 {
-	Contact	new_entry;
+	if (this->index == 0)
+		return ;
+	std::cout << std::left << std::endl;
+	std::cout << std::setw(16) << "First name:" << this->FirstName << std::endl;
+	std::cout << std::setw(16) << "Last name:" << this->LastName << std::endl;
+	std::cout << std::setw(16) << "Nickname:" << this->NickName << std::endl;
+	std::cout << std::setw(16) << "Phone number:" << this->PhoneNumber << std::endl;
+	std::cout << std::setw(16) << "Darkest secret:" << this->DarkestSecret << std::endl;
+}
 
+void Contact::show_index()
+{
+	if (this->index == 0)
+		return ;
+	std::cout << std::setw(10) << std::right << this->index << "|";
+	std::cout << std::setw(10) << std::right << truncate_field(this->FirstName) << "|";
+	std::cout << std::setw(10) << std::right << truncate_field(this->LastName) << "|";
+	std::cout << std::setw(10) << std::right << truncate_field(this->NickName) << "|" << std::endl;
+}
+
+void	Contact::get_info(int in)
+{
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cout << "Please write your first name:" << std::endl;
-	std::cin >> new_entry.FirstName;
+	getline(std::cin, this->FirstName);
 	std::cout << "Please write your last name:" << std::endl;
-	std::cin >> new_entry.LastName;
+	getline(std::cin, this->LastName);
 	std::cout << "Please insert a nickname:" << std::endl;
-	std::cin >> new_entry.NickName;
+	getline(std::cin, this->NickName);
 	std::cout << "Please insert your phone number:" << std::endl;
-	std::cin >> new_entry.PhoneNumber;
+	getline(std::cin, this->PhoneNumber);
 	std::cout << "Please tell me your darkest secret:" << std::endl;
-	std::cin >> new_entry.DarkestSecret;
-
-	return (new_entry);
+	getline(std::cin, this->DarkestSecret);
+	this->index = in;
 }
 
-void	search_contact()
+Contact::Contact()
 {
-	return ;
+	FirstName = "";
+	LastName = "";
+	NickName = "";
+	PhoneNumber = "";
+	DarkestSecret = "";
+	index = 0;
 }

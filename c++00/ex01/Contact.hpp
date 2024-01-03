@@ -3,24 +3,25 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include "Phonebook.hpp"
 
 class Contact
 {
-	public:
+	private:
 		std::string FirstName;
 		std::string LastName;
 		std::string NickName;
 		std::string PhoneNumber;
 		std::string DarkestSecret;
-		std::time_t	time_added;
 
-	Contact()
-	{
-		time_added = std::time(0);
-	}
+	public:
+		int			index;
+
+		void	show_index();
+		void	show_contact(void);
+		void	get_info(int in);
+		Contact();
 };
-
-Contact	add_contact();
-void	search_contact();
 
 #endif

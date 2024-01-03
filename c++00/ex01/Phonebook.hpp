@@ -4,14 +4,14 @@
 #include <iostream>
 #include "Contact.hpp"
 
-using namespace std;
-
 class Phonebook
 {
 	public:
-		Contact	entries[8];
+		class Contact	entries[8];
+	
+	void	search_contact();
+	void	add_contact();
+	Phonebook();
 };
-
-void	print_phonebook();
 
 #endif

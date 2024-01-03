@@ -1,7 +1,8 @@
 NAME	=	Phonebook
 RM		=	rm -rf
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address  
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
+HEADERS	=	-I/Contact.hpp -I/Phonebook.hpp
 SRCS	=	Contact.cpp \
 			Main.cpp \
 			Phonebook.cpp \
@@ -14,11 +15,11 @@ all:	$(NAME)
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
+$(NAME): $(OBJDIR) $(OBJS)
+	$(CC) $(HEADERS) $(CFLAGS) $(OBJS) -o $(NAME)
+
 $(OBJDIR)/%.o : %.cpp
 	$(CC) -c $^ $(CFLAGS) -o $@
-
-$(NAME): $(OBJDIR) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:	
 	$(RM) $(OBJDIR)
