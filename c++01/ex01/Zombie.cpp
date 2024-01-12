@@ -19,3 +19,8 @@ Zombie::~Zombie()
 {
 	std::cout << name << " has perished." << std::endl;
 }
+
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
+}

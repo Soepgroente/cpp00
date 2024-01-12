@@ -1,15 +1,14 @@
-NAME	=	Zombfg
+NAME	=	Horde
 RM		=	rm -rf
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
+CFLAGS	=	-Wall -Werror -Wextra -std=c++11 #-g3 -fsanitize=address
 HEADERS	=	
 SRCS	=	main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
 			Zombie.cpp \
+			ZombieHorde.cpp \
 
 OBJS	=	$(SRCS:%.cpp=$(OBJDIR)/%.o)
-OBJDIR	=	Zombjects
+OBJDIR	=	Zobj
 
 all:	$(NAME)
 

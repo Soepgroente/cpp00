@@ -41,7 +41,7 @@ void	Phonebook::search_contact(void)
 		this->entries[i].show_index();
 	}
 	std::cout << "\nPlease choose which contact to display" << std::endl;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.ignore(std::numeric_limits<std::streamsize>std::max(), '\n');
 	while (index == 0)
 	{
 		getline(std::cin, search);
