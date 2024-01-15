@@ -1,11 +1,8 @@
-NAME	=	Combat
+NAME	=	files_n_stuff
 RM		=	rm -rf
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++11 -g
-SRCS	=	HumanA.cpp \
-			HumanB.cpp \
-			main.cpp \
-			Weapon.cpp \
+SRCS	=	main.cpp \
 
 OBJS	=	$(SRCS:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	=	objects

@@ -2,11 +2,8 @@
 
 int main(void)
 {
-	std::string		str;
-	std::string*	str_PTR;
-
-	str = "HI THIS IS BRAIN";
-	str_PTR = &str;
+	std::string		str = "HI THIS IS BRAIN";
+	std::string*	str_PTR = &str;
 	std::string&	str_REF = str;
 	
 	std::cout << "Address of str:     " << &str << std::endl;

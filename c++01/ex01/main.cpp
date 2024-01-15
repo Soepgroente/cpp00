@@ -22,7 +22,7 @@ size_t	ft_atoi(std::string& input)
 
 int	main(void)
 {
-	Zombie*	Horde;
+	Zombie*		Horde;
 	std::string	num;
 	size_t		N;
 
