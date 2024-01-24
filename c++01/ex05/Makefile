@@ -1,8 +1,9 @@
-NAME	=	rep
+NAME	=	Harl.out
 RM		=	rm -rf
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++11 -g
-SRCS	=	main.cpp \
+SRCS	=	Harl.cpp \
+			main.cpp \
 
 OBJS	=	$(SRCS:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	=	objects
@@ -19,7 +20,7 @@ $(OBJDIR)/%.o : %.cpp
 	$(CC) -c $^ $(CFLAGS) -o $@
 
 clean:
-	$(RM) $(OBJDIR) dest.txt
+	$(RM) $(OBJDIR)
 
 fclean: clean
 	$(RM) $(NAME)
