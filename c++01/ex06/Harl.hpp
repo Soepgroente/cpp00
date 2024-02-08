@@ -3,20 +3,34 @@
 
 #include <iostream>
 
+#define ERROR_MSG "Please enter the filter level 'DEBUG', 'INFO', 'WARNING' or 'ERROR'"
+
 class Harl
 {
+	typedef enum s_filter
+	{
+		DEBUG,
+		INFO,
+		WARNING,
+		ERROR
+	}	t_filter;
+
 	private:
 	void 			debug(void);
 	void 			info(void);
 	void 			warning(void);
 	void 			error(void);
 	std::string		levels[4];
-	void	(Harl::*func[4])(void);
+
+	int				level_to_int(std::string input);
 
 	public:
+	int				filter;
 	void	complain(std::string level);
 	Harl();
+	Harl(std::string input);
 	~Harl();
 };
+
 
 #endif
