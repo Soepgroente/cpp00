@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Fixed.hpp"
 
 int main( void )

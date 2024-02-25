@@ -13,13 +13,12 @@ class	Fixed
 	int			getRawBits( void ) const;
 	void		setRawBits( int const raw );
 	void		operator=(const Fixed& original);
-	void		operator<<();
-	const int	toInt( void );
-	const float toFloat( void );
+	// void		operator<<();
+	int	toInt( void ) const;
+	float toFloat( void ) const;
 	Fixed();
 	Fixed(const int val);
 	Fixed(const float val);
 	Fixed(const Fixed& original);
 	~Fixed();
 };
-WAS WAS WAS
