@@ -10,13 +10,9 @@ class	Fixed
 
 	public:
 	
-	int		getRawBits( void ) const;
-	void	setRawBits( int const raw );
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
 	void	operator=(const Fixed& original);
-	// void	operator*();
-	// void	operator/();
-	// void	operator+();
-	// void	operator-();
 
 	Fixed();
 	Fixed(const Fixed& original);

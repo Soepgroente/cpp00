@@ -1,5 +1,6 @@
 #include <iostream>
-#include <cstring>
+#include <iomanip>
+#include <cmath>
 #include "Fixed.hpp"
 
 Fixed::Fixed()
@@ -8,11 +9,9 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 }
 
-/*	Memcpy works because the original doesn't have any allocated members	*/
-
 Fixed::Fixed(const Fixed& original)
 {
-	std::memcpy(this, &original, sizeof(original));
+	this->value = original.value;
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -24,7 +23,7 @@ Fixed::Fixed(const int val)
 
 Fixed::Fixed(const float val)
 {
-	setRawBits((int)val);
+	value = (int)std::roundf(val * (1 << fractional_bits));
 	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -35,35 +34,40 @@ Fixed::~Fixed()
 
 int	Fixed::toInt(void) const
 {
-	std::cout << "toInt called" << std::endl;
-	return (this->value >> 8);
+	return (this->value >> fractional_bits);
 }
 
 float Fixed::toFloat(void) const
 {
-	std::cout << "toFloat called" << std::endl;
-	return ((float)this->value / 256);
+	int		whole_num;
+	int 	partial_num;
+	float	scaled_float;
+	float	result;
+
+	whole_num = getRawBits() >> fractional_bits;
+	partial_num = value & ((1 << fractional_bits) - 1);
+	scaled_float = static_cast<float>(partial_num) / (1 << fractional_bits);
+	result = (float)whole_num + scaled_float;
+	return (result);
 }
 
-int Fixed::getRawBits( void ) const
+int Fixed::getRawBits(void) const
 {
-	std::cout << "GetRawBits called" << std::endl;
 	return (this->value);
 }
 
-void Fixed::setRawBits( int const raw )
+void Fixed::setRawBits(int const raw)
 {
-	std::cout << "SetRawBits called" << std::endl;
 	this->value = raw;
 }
 
 void	Fixed::operator=(const Fixed& original)
 {
-	std::cout << "= operator called" << std::endl;
 	this->value = original.getRawBits();
 }
 
-/* void	Fixed::operator<<()
+std::ostream&	operator<<(std::ostream& stream, const Fixed& original)
 {
-	std::cout << "<< operator called" << std::endl;
-} */
+	stream << original.toFloat();
+	return (stream);
+}

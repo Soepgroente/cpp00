@@ -10,15 +10,16 @@ class	Fixed
 
 	public:
 	
-	int			getRawBits( void ) const;
-	void		setRawBits( int const raw );
-	void		operator=(const Fixed& original);
-	// void		operator<<();
-	int	toInt( void ) const;
-	float toFloat( void ) const;
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
+	int		toInt(void) const;
+	float	toFloat(void) const;
+	void	operator=(const Fixed& original);
 	Fixed();
 	Fixed(const int val);
 	Fixed(const float val);
 	Fixed(const Fixed& original);
 	~Fixed();
 };
+
+std::ostream&	operator<<(std::ostream& stream, const Fixed& original);

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 #include "Fixed.hpp"
 
 Fixed::Fixed()
@@ -10,7 +9,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const Fixed& original)
 {
-	std::memcpy(this, &original, sizeof(original));
+	this->value = original.value;
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -19,13 +18,13 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits( void ) const
+int Fixed::getRawBits(void) const
 {
 	std::cout << "GetRawBits called" << std::endl;
 	return (this->value);
 }
 
-void Fixed::setRawBits( int const raw )
+void Fixed::setRawBits(int const raw)
 {
 	std::cout << "SetRawBits called" << std::endl;
 	this->value = raw;
@@ -33,6 +32,6 @@ void Fixed::setRawBits( int const raw )
 
 void	Fixed::operator=(const Fixed& original)
 {
+	this->value = original.value;
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->value = original.getRawBits();
 }
