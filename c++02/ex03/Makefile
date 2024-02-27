@@ -4,6 +4,9 @@ CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++11 -g
 SRCS	=	Fixed.cpp \
 			main.cpp \
+			Point.cpp \
+			Triangle.cpp \
+			utils.cpp \
 
 OBJS	=	$(SRCS:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	=	objects

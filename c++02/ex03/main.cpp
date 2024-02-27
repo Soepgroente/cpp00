@@ -1,27 +1,13 @@
 #include <iostream>
 #include <stdio.h>
 #include "Fixed.hpp"
+#include "Point.hpp"
+#include "Triangle.hpp"
 
 int	main(void)
 {
-	Fixed a;
-	Fixed const b(Fixed(10.05f) * Fixed(8));
-	Fixed x(1000000);
-	Fixed y(0.2f);
-	Fixed c(x / y);
+	Triangle one(Point(2.0f, 3.0f), Point(3, 4), Point(5, 6));
+	Triangle two(one);
 
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-
-	std::cout << x << std::endl;
-	std::cout << y << std::endl;
-	std::cout << c << std::endl;
 	return (0);
 }
