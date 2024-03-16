@@ -16,6 +16,7 @@ class	Point
 	Fixed	get_y() const;
 	Point();
 	Point(const float x, const float y);
+	Point(const Fixed& x, const Fixed& y);
 	Point(const Point& original);
 	~Point();
 };

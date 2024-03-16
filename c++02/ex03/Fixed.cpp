@@ -47,6 +47,12 @@ void Fixed::setRawBits(int const raw)
 	this->value = raw;
 }
 
+void	Fixed::abs(void)
+{
+	if (this->getRawBits() < 0)
+		this->setRawBits(this->getRawBits() * -1);
+}
+
 Fixed&	Fixed::min(Fixed& a, Fixed& b)
 {
 	if (a.getRawBits() <= b.getRawBits())

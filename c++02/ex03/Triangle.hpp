@@ -10,7 +10,7 @@ class	Triangle
 		const Point	vertices[3];
 
 	public:
-
+	
 	const Point&	get_pt(int point) const;
 	void			operator=(const Triangle& triangle) = delete;
 
@@ -20,4 +20,5 @@ class	Triangle
 	~Triangle();
 };
 
-bool	inside_triangle(const Triangle triangle, const Point point);
+bool	inside_triangle(const Triangle& triangle, const Point& point);
+void	Print(Triangle& that, Triangle& the_other_thing);
