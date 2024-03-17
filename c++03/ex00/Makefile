@@ -1,12 +1,9 @@
-NAME	=	triangle
+NAME	=	claptrap
 RM		=	rm -rf
 CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++11 -g
-SRCS	=	calculate.cpp \
-			Fixed.cpp \
+SRCS	=	ClapTrap.cpp \
 			main.cpp \
-			Point.cpp \
-			Triangle.cpp \
 
 OBJS	=	$(SRCS:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	=	objects
