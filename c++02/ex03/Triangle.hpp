@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 #include "Point.hpp"
 

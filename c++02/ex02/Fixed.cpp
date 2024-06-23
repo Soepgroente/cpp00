@@ -132,8 +132,8 @@ bool	Fixed::operator!=(const Fixed& fn)
 
 Fixed	Fixed::operator+(const Fixed& fn)
 {
-	int	sum = this->getRawBits() + fn.getRawBits();
-	return (Fixed(sum));
+	long	sum = this->getRawBits() + fn.getRawBits();
+	return (Fixed(int(sum >> 8)));
 }
 
 Fixed	Fixed::operator-(const Fixed& fn)

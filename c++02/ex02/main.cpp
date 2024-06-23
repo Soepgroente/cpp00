@@ -20,6 +20,7 @@ int	main(void)
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
 
+	std::cout << Fixed(2) + Fixed(3) << std::endl;
 	std::cout << x << std::endl;
 	std::cout << y << std::endl;
 	std::cout << c << std::endl;

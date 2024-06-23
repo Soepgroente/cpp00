@@ -2,28 +2,47 @@
 #include "Point.hpp"
 #include "Triangle.hpp"
 
-Fixed tri_area(const Point& x, const Point& y, const Point& z)
+static void	print_point(const Point& pt)
 {
-	Fixed	a(x.get_x() * (y.get_y() - z.get_y()));
-	Fixed	b(y.get_x() * (x.get_y() - z.get_y()));
-	Fixed	c(z.get_x() * (x.get_y() - y.get_y()));
-	Fixed	area((a + b + c) / Fixed(2));
+	std::cout << "x: " << pt.get_x().toFloat() << std::endl;
+	std::cout << "y: " << pt.get_y().toFloat() << std::endl;
+}
 
-	area.abs();
-	return (area);
+static Fixed	directionFraction(const Point& a, const Point& b)
+{
+	Fixed x(a.get_x() / b.get_x());
+	Fixed y(a.get_y() / b.get_y());
+
+	Fixed c(sqrt(Fixed(x * x + y * y).toFloat()));
+	std::cout << "c: " << c.toFloat() << std::endl;
+	return (c);
+}
+
+static Point Vector2D(const Point& from, const Point& to)
+{
+	Fixed x;
+	Fixed y;
+
+	x = to.get_x() - from.get_x();
+	y = to.get_y() - from.get_y();
+
+	return (Point(x, y));
 }
 
 bool	inside_triangle(const Triangle& triangle, const Point& point)
 {
-	Fixed	or_triangle;
-	Fixed	pt_area[3];
+	Point	vectorAB(Vector2D(triangle.get_pt(0), triangle.get_pt(1)));
+	Point	vectorAC(Vector2D(triangle.get_pt(0), triangle.get_pt(2)));
+	Point	vectorAtoPoint(Vector2D(triangle.get_pt(0), point));
 
-	or_triangle = tri_area(triangle.get_pt(0), triangle.get_pt(1), triangle.get_pt(2));
-	pt_area[0] = tri_area(triangle.get_pt(0), triangle.get_pt(1), point);
-	pt_area[1] = tri_area(triangle.get_pt(0), triangle.get_pt(2), point);
-	pt_area[2] = tri_area(triangle.get_pt(1), triangle.get_pt(2), point);
 
-	if (pt_area[0] + pt_area[1] + pt_area[2] == or_triangle)
-		return (true);
-	return (false);
+
+	Fixed	fractionToB();
+	Fixed	fractionToC(directionFraction(vectorAtoPoint, vectorAC));
+
+	if (fractionToB <= Fixed(0) || (fractionToC <= Fixed(0) || Fixed(fractionToB + fractionToC) >= Fixed(2)))
+	{
+		return (false);
+	}
+	return (true);
 }

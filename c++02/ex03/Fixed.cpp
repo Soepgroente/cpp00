@@ -96,56 +96,60 @@ void	Fixed::operator=(const Fixed& original)
 
 bool	Fixed::operator<(const Fixed& fn)
 {
-	if (fn.getRawBits() < this->getRawBits())
+	if (this->getRawBits() < fn.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator>(const Fixed& fn)
 {
-	if (fn.getRawBits() > this->getRawBits())
+	if (this->getRawBits() > fn.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator<=(const Fixed& fn)
 {
-	if (fn.getRawBits() <= this->getRawBits())
+	if (this->getRawBits() <= fn.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator>=(const Fixed& fn)
 {
-	if (fn.getRawBits() >= this->getRawBits())
+	if (this->getRawBits() >= fn.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator==(const Fixed& fn)
 {
-	if (fn.getRawBits() == this->getRawBits())
+	if (this->getRawBits() == fn.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator!=(const Fixed& fn)
 {
-	if (fn.getRawBits() != this->getRawBits())
+	if (this->getRawBits() != fn.getRawBits())
 		return (true);
 	return (false);
 }
 
 Fixed	Fixed::operator+(const Fixed& fn)
 {
-	int	sum = this->getRawBits() + fn.getRawBits();
-	return (Fixed(sum));
+	long temp = this->getRawBits() + fn.getRawBits();
+
+	Fixed tmp = Fixed((int)temp) / Fixed((int)pow(2, fractional_bits));
+	return (tmp);
 }
 
 Fixed	Fixed::operator-(const Fixed& fn)
 {
-	int	sum = this->getRawBits() - fn.getRawBits();
-	return (Fixed(sum));
+	long temp = this->getRawBits() - fn.getRawBits();
+
+	Fixed tmp = Fixed((int)temp) / Fixed((int)pow(2, fractional_bits));
+	return (tmp);
 }
 
 Fixed	Fixed::operator*(const Fixed& fn)
